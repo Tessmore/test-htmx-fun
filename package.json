@@ -1,0 +1,17 @@
+{
+  "name": "test-htmx",
+  "version": "1.0.0",
+  "main": "server.mjs",
+  "scripts": {
+    "start": "nodemon server.mjs"
+  },
+  "author": "",
+  "license": "MIT",
+  "description": "Test ht",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.3"
+  }
+}

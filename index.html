@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTMX Example</title>
+    <script src="https://unpkg.com/htmx.org@2.0.0" integrity="sha384-wS5l5IKJBvK6sPTKa2WZ1js3d947pvWXbPJ1OmWfEuxLgeHcEbjUUA5i9V5ZkpCw" crossorigin="anonymous"></script>
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 20px 40px;
+            box-sizing: border-box;
+            font-size: 16px;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img, picture, video, canvas, svg {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        input, button, textarea, select {
+            font: inherit;
+        }
+
+        h1, h2, h3, h4, h5, h6, p, ol, ul {
+            margin: 0;
+            padding: 0;
+            font-weight: normal;
+            overflow-wrap: break-word;
+        }
+
+        .example {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="example click-example">
+        <p>Content below is replaced on click</p>
+
+        <div id="parent-div">Loading...</div>
+
+        <button hx-post="/data"
+            hx-trigger="click"
+            hx-target="#parent-div"
+            hx-swap="outerHTML"
+        >
+            Click Me!
+        </button>
+    </div>
+
+    <div class="example search-example">
+        <p>Type below to get some random numbers</p>
+
+        <input type="text" name="q"
+            hx-get="/search"
+            hx-trigger="keyup changed delay:500ms"
+            hx-target="#search-results"
+            placeholder="Search..."
+            autocomplete="off"
+        >
+
+        <div id="search-results"></div>
+    </div>
+
+
+
+    <!-- <div hx-get="/data" hx-trigger="load" hx-swap="outerHTML">
+        Loading...
+    </div> -->
+
+
+    <!-- <tr hx-get="/contacts/?page=2"
+        hx-trigger="revealed"
+        hx-swap="afterend">
+        <td>Agent Smith</td>
+        <td>void29@null.org</td>
+        <td>55F49448C0</td>
+    </tr> -->
+
+
+    <!-- <table class="table delete-row-example">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody hx-target="closest tr" hx-swap="outerHTML">
+          ...
+        </tbody>
+    </table> -->
+</body>
+</html>
